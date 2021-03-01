@@ -8,6 +8,11 @@
 
 - MacOS might prevent you from launching it the first time, in which case it must be allowed to run manually via *System Preferences -> Security & Privacy -> Open Anyway* 
 
+- Open MySQL Workbench and click on *Local instance 3306*. When prompted to enter your password, enter the password created above. 
+
+- You can view the databases under the *Schemas* tab. By default, you can see one db named *sys* containing a default table 
+named *sys_config*. 
+
 - How to add data to a mysql databases from R
 - How to use dplyr in R to access, querry and write to the db
 
