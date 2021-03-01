@@ -22,33 +22,44 @@
 
 ### Step 2: Connecting MySQL database and R
 
-- Install package RMySQL
+- Install package RMySQL and call library RMySQL.
+
 `install.packages("RMySQL")`
 
+`library(RMySQL)`
+
 - Connect R to MySQL. When prompted to enter your password, enter the password created above. 
+
 `con = dbConnect(MySQL(), user="root", rstudioapi::askForPassword("Database password"), dbname="sample_db", host="localhost")`
 
 - To Access the data from MySQL in R. Below chunk of code will display 10 records from *user_details* table.
+
 `dbGetQuery(con, 'select * from user_details limit 10')`
 
 <img width="827" alt="Screen Shot 2021-02-28 at 11 54 15 PM" src="https://user-images.githubusercontent.com/55261637/109467643-59db0480-7a20-11eb-83cc-899e201096d8.png">
 
 - Create/Use a dataframe in R. 
   For example:
+  
   `x <- 1:10`
+  
   `y <- letters[1:10]`
+  
   `sample_table <- data.frame(x,y)`
+  
   `head(sample_table)`
   
   <img width="71" alt="Screen Shot 2021-03-01 at 12 00 50 AM" src="https://user-images.githubusercontent.com/55261637/109468372-5300c180-7a21-11eb-8aba-f0e2393811f3.png">
 
 - Writing table to MySQL
+
   In order to avoide error (*Error in (function (classes, fdef, mtable)  : 
   unable to find an inherited method for function ‘dbWriteTable’ for signature ‘"MySQLConnection", "character", "tbl_MySQLConnection"’*) we use
   
   `dbSendQuery(con, "SET GLOBAL local_infile = true;")`
   
 - Creating table *rtosql* in MySQL under *sample_db*
+
   `dbWriteTable(con, name = 'rtosql', value = sample_table, append = TRUE, temporary = FALSE)`
 
   In below image we can see table *rtosql* is created.
