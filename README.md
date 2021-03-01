@@ -112,4 +112,5 @@
 
 In MySQL
 
-<img width="1016" alt="7" src="https://user-images.githubusercontent.com/55261637/109477412-d673e000-7a2c-11eb-9388-58a01570346b.png">
+<img width="850" alt="8" src="https://user-images.githubusercontent.com/55261637/109477510-f60b0880-7a2c-11eb-8ffb-4810955033dc.png">
+
