@@ -1,7 +1,6 @@
-# DataScienceWorkgroup-Connecting-R-to-mysql
-Connecting R to mysql 
+# Data Science Workgroup: Connecting R to MySQL
 
-- How to install mysql locally
+## -  How to install mysql locally?
 
 # Why Install MySQL Locally?
 
