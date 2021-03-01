@@ -4,7 +4,8 @@
 
 ### Step 1: Download & Install MySQL  
 
--Download [MySQL Workbench](https://downloads.mysql.com/archives/workbench/). Follow MySQL Community Server, Windows and download the “Without installer” version.
+- Download [MySQL Workbench](https://dev.mysql.com/downloads/workbench/). (Oler version might not be compatible with the current version of MacOS). 
+
 
 https://dev.mysql.com/downloads/file/?id=501121
 
