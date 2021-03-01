@@ -39,6 +39,7 @@
 <img width="827" alt="Screen Shot 2021-02-28 at 11 54 15 PM" src="https://user-images.githubusercontent.com/55261637/109467643-59db0480-7a20-11eb-83cc-899e201096d8.png">
 
 - Create/Use the dataframe in R to load this dataframe to MySQL. 
+  
   For example:
   
   `x <- 1:10`
@@ -67,7 +68,48 @@
 <img width="846" alt="5" src="https://user-images.githubusercontent.com/55261637/109469807-64e36400-7a23-11eb-8b8e-bb9e7c6ee648.png">
 
  
-- How to use dplyr in R to access, querry and write to the db
+# How to use dplyr in R to access, querry and write to the db ?
 
+### Step 3: Connecting MySQL database and R using dplyr.
 
+- Install the package and call the library dplyr.
 
+`install.packages("dplyr")`
+
+`library(dplyr)`
+
+- Setting up the connection between R and MySQL. When prompted to enter your password, enter the password created above.
+
+`con <- DBI::dbConnect(MySQL(), 
+                      host = "localhost",
+                      user = "root",
+                      dbname = "sample_db",
+                      password = rstudioapi::askForPassword("Database password"))`
+                
+- Accessing *user_details* table from MySQL to R.
+
+`dplyr_table <- tbl(con, "user_details")`
+
+`head(dplyr_table)`
+
+<img width="840" alt="6" src="https://user-images.githubusercontent.com/55261637/109476064-4ed9a180-7a2b-11eb-9ff7-3017c5d3dcd0.png">
+
+- From the below code we get only male user details from *user_details* table. Can perform multiple querys using *dplyr*.
+
+`dplyr_table %>% filter(gender == "Male")`
+
+- Create a sample table (*sample_dplyr_table*) to load that table to MySQL from R using dplyr.
+
+`x <- 1:20`
+
+`y <- letters[1:20]`
+
+`sample_dplyr_table <- data.frame(x,y)`
+
+- Loading *sample_dplyr_table* table to MySQL
+
+`DBI::dbWriteTable(con, name = 'dplyrtable', sample_dplyr_table, temporary = FALSE)`
+
+In MySQL
+
+<img width="1016" alt="7" src="https://user-images.githubusercontent.com/55261637/109477412-d673e000-7a2c-11eb-9388-58a01570346b.png">
