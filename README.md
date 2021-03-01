@@ -18,7 +18,9 @@
 
 - You can view the new database under the *Schemas* tab. You should see the new *sample_db* containing a table named *user_details* (from the SQL file we uploaded). 
 
+### Step 2: Connecting MySQL database and R
 
+`install.packages("RMySQL")`
 
 - How to add data to a mysql databases from R
 - How to use dplyr in R to access, querry and write to the db
