@@ -10,10 +10,9 @@
 
 - Open MySQL Workbench and click on *Local instance 3306*. When prompted to enter your password, enter the password created above. 
 
+- Let us create a sample database to connect with R. Under the *Administration* tab, click on *Data Import/Restore* and then select *Import from Self-Contained File*. We can download a [sample SQL file here](https://sample-videos.com/sql/Sample-SQL-File-1000rows.sql) 
+
 <img width="1018" alt="Screen Shot 2021-02-28 at 9 35 06 PM" src="https://user-images.githubusercontent.com/55261637/109457377-9d794280-7a0f-11eb-8a3e-dca61cfb37ca.png">
-
-
-- Let us create a sample database to connect with R. Under the *Administration* tab, click on *Data Import/Restore* and then select *Import from Self-Contained File*. We can download a [sample SQL file](https://sample-videos.com/sql/Sample-SQL-File-1000rows.sql) and  
 
 - You can view the databases under the *Schemas* tab. By default, you can see one db named *sys* containing a default table 
 named *sys_config* containing a few records. 
