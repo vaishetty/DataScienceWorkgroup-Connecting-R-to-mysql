@@ -4,7 +4,7 @@
 
 ### Step 1: Download & Install MySQL  
 
-- Download [MySQL Workbench](https://dev.mysql.com/downloads/workbench/). (Oler version might not be compatible with the current version of MacOS). 
+- Download [MySQL Workbench](https://dev.mysql.com/downloads/workbench/). (Oler version might not be compatible with the current version of MacOS). During installation, make note of the username and password. 
 
 
 https://dev.mysql.com/downloads/file/?id=501121
