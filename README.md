@@ -2,7 +2,7 @@
 
 ## How to install mysql locally? (Applicable to MacOS)
 
-### Step 1: Download & Install MySQL  
+### Step 1: Download & Install MySQL locally
 
 - Download [MySQL Workbench](https://dev.mysql.com/downloads/workbench/). (Oler version might not be compatible with the current version of MacOS). During installation, make note of the username and password. 
 
