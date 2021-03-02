@@ -22,25 +22,29 @@
 
 ### Step 2: Connecting MySQL database and R
 
-- Install the package RMySQL and call the library RMySQL in R.
+- Install the `RMySQL` R package and load the library in your R session.
 
 `install.packages("RMySQL")`
 
 `library(RMySQL)`
 
-- Connect R to MySQL using below code. When prompted to enter your password, enter the password created above. 
+- Establish the connection between your RStudio and MySQL like so - 
 
 `con = dbConnect(MySQL(), user="root", rstudioapi::askForPassword("Database password"), dbname="sample_db", host="localhost")`
 
-- To Access the data from MySQL in R use below code. Below chunk of code will display 10 records from *user_details* table.
+(When prompted to enter your password, enter the password created above).
+
+- Now, we can query data from MySQL using R, like so -
 
 `dbGetQuery(con, 'select * from user_details limit 10')`
 
+Above query will display 10 records from the *user_details* table.
+
 <img width="827" alt="Screen Shot 2021-02-28 at 11 54 15 PM" src="https://user-images.githubusercontent.com/55261637/109467643-59db0480-7a20-11eb-83cc-899e201096d8.png">
 
-- Create/Use the dataframe in R to load this dataframe to MySQL. 
+- We can also write/export an R dataframe to MySQL. 
   
-  For example:
+  To illustrate, let us create a sample dataframe in R containing 2 columns `x` (Containing 10 numbers) & `y` (Containing 10 letters), like so -  
   
   `x <- 1:10`
   
@@ -48,24 +52,24 @@
   
   `sample_table <- data.frame(x,y)`
   
-  `head(sample_table)`
-  
   <img width="71" alt="Screen Shot 2021-03-01 at 12 00 50 AM" src="https://user-images.githubusercontent.com/55261637/109468372-5300c180-7a21-11eb-8aba-f0e2393811f3.png">
 
-- Loading the dataframe *sample_table* from R to *sample_db* database in MySQL.
+- Now, we can write this dataframe *sample_table* from R as a table into *sample_db* database in MySQL.
 
-  In order to avoide error (*Error in (function (classes, fdef, mtable)  : 
-  unable to find an inherited method for function ‘dbWriteTable’ for signature ‘"MySQLConnection", "character", "tbl_MySQLConnection"’*) we use
+  To do this, we need to enable write privilages, like so -
   
   `dbSendQuery(con, "SET GLOBAL local_infile = true;")`
   
-- importing the table *rtosql* in MySQL under *sample_db*
+- Now we can write the table *sample_table* from R to MySQL under *sample_db*, like so -
 
-  `dbWriteTable(con, name = 'rtosql', value = sample_table, append = TRUE, temporary = FALSE)`
+  `dbWriteTable(con, name = 'sample_table', value = sample_table, append = TRUE, temporary = FALSE)`
+  
+  (Here, we have the option to change the name of the table being written into the MySQL database).
 
-  In the below image we can see the table *rtosql* is created under *sample_db* databse.
-
+  
 <img width="846" alt="5" src="https://user-images.githubusercontent.com/55261637/109469807-64e36400-7a23-11eb-8b8e-bb9e7c6ee648.png">
+
+As we can see, the table *sample_table* is created under *sample_db* database.
 
  
 # How to use dplyr in R to access, querry and write to the db ?
