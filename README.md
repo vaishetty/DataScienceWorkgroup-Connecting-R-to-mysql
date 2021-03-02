@@ -72,23 +72,16 @@ As we can see, the table *rtosql* is created under *sample_db* database.
  
 # How to use dplyr in R to access, querry and write to the db ?
 
-### Step 3: Connecting MySQL database and R using dplyr.
+### Step 3: Accessing MySQL database with R via `dplyr`.
 
-- Install the package and call the library dplyr.
+- Install the `dplyr` R package and load the library in your R session. 
 
 `install.packages("dplyr")`
 
 `library(dplyr)`
 
-- Setting up the connection between R and MySQL. When prompted to enter your password, enter the password created above.
 
-`con <- DBI::dbConnect(MySQL(), 
-                      host = "localhost",
-                      user = "root",
-                      dbname = "sample_db",
-                      password = rstudioapi::askForPassword("Database password"))`
-                
-- Accessing *user_details* table from MySQL to R.
+- We can access *user_details* table from MySQL to R using `dplyr`, like so -
 
 `dplyr_table <- tbl(con, "user_details")`
 
@@ -96,23 +89,7 @@ As we can see, the table *rtosql* is created under *sample_db* database.
 
 <img width="840" alt="6" src="https://user-images.githubusercontent.com/55261637/109476064-4ed9a180-7a2b-11eb-9ff7-3017c5d3dcd0.png">
 
-- From the below code we get only male user details from *user_details* table. Can perform multiple querys using *dplyr*.
+- Instead of using SQL queries, we can access/select/filter data using `dplyr`. For eg., If we need to select details of only male users from *user_details* table, we can use:
 
 `dplyr_table %>% filter(gender == "Male")`
-
-- Create a sample table (*sample_dplyr_table*) to load that table to MySQL from R using dplyr.
-
-`x <- 1:20`
-
-`y <- letters[1:20]`
-
-`sample_dplyr_table <- data.frame(x,y)`
-
-- Loading *sample_dplyr_table* table to MySQL
-
-`DBI::dbWriteTable(con, name = 'dplyrtable', sample_dplyr_table, temporary = FALSE)`
-
-In MySQL
-
-<img width="850" alt="8" src="https://user-images.githubusercontent.com/55261637/109477510-f60b0880-7a2c-11eb-8ffb-4810955033dc.png">
 
