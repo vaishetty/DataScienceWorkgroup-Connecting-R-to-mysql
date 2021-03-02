@@ -93,3 +93,6 @@ As we can see, the table *rtosql* is created under *sample_db* database.
 
 `dplyr_table %>% filter(gender == "Male")`
 
+<img width="796" alt="Screen Shot 2021-03-02 at 11 19 21 AM" src="https://user-images.githubusercontent.com/55261637/109702523-3364b880-7b49-11eb-9cdc-5aa027d71f37.png">
+
+As we can see, the result filters only the male users.
