@@ -87,11 +87,15 @@ As we can see, the table *rtosql* is created under *sample_db* database.
 
 `head(dplyr_table)`
 
+
 <img width="840" alt="6" src="https://user-images.githubusercontent.com/55261637/109476064-4ed9a180-7a2b-11eb-9ff7-3017c5d3dcd0.png">
 
+
 - Instead of using SQL queries, we can access/select/filter data using `dplyr`. For eg., If we need to select details of only male users from *user_details* table, we can use:
+ 
 
 `dplyr_table %>% filter(gender == "Male")`
+
 
 <img width="796" alt="Screen Shot 2021-03-02 at 11 19 21 AM" src="https://user-images.githubusercontent.com/55261637/109702523-3364b880-7b49-11eb-9cdc-5aa027d71f37.png">
 
