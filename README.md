@@ -72,7 +72,7 @@ As we can see, the table *rtosql* is created under *sample_db* database.
  
 # How to use dplyr in R to access, querry and write to the db ?
 
-### Step 3: Accessing MySQL database with R via `dplyr`.
+### Step 3: Querying MySQL database with R via `dplyr`.
 
 - Install the `dplyr` R package and load the library in your R session. 
 
