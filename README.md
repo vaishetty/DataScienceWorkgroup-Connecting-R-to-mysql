@@ -60,16 +60,14 @@ Above query will display 10 records from the *user_details* table.
   
   `dbSendQuery(con, "SET GLOBAL local_infile = true;")`
   
-- Now we can write the table *sample_table* from R to MySQL under *sample_db*, like so -
+- Now we can write the table *sample_table* from R to MySQL under *sample_db*. Here, we have the option to change the name of the table being written into the MySQL database. Let us call it *rtosql*, like so -
 
-  `dbWriteTable(con, name = 'sample_table', value = sample_table, append = TRUE, temporary = FALSE)`
-  
-  (Here, we have the option to change the name of the table being written into the MySQL database).
+  `dbWriteTable(con, name = 'rtosql', value = sample_table, append = TRUE, temporary = FALSE)`
 
   
 <img width="846" alt="5" src="https://user-images.githubusercontent.com/55261637/109469807-64e36400-7a23-11eb-8b8e-bb9e7c6ee648.png">
 
-As we can see, the table *sample_table* is created under *sample_db* database.
+As we can see, the table *rtosql* is created under *sample_db* database.
 
  
 # How to use dplyr in R to access, querry and write to the db ?
